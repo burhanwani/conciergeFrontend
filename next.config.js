@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = nextConfig
+module.exports = () => {
+  const rewrites = () => {
+    return [
+      {
+        source: "/itinerary",
+        destination: "http://localhost:5000/itinerary",
+      },
+    ];
+  };
+  return {
+    rewrites,
+  };
+};
