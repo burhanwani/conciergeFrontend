@@ -2,7 +2,7 @@ import React from 'react';
 import { useRecoilState } from 'recoil';
 import { searchTermAtom } from '../atoms/searchTermAtom';
 import styles from '../styles/SearchBox.module.css'; // Import CSS styles
-import postData from '@/utils/requests';
+import postData from '@/src/utils/requests';
 
 const SearchBox: React.FC = () => {
   const [searchTerm, setSearchTerm] = useRecoilState(searchTermAtom);

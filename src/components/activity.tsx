@@ -5,7 +5,7 @@ import { Activity as ActivityType } from '../atoms/itineraryStateAtom';
 import Image from 'next/image';
 import { IconButton, Text, Input, Link, VStack } from '@chakra-ui/react';
 import { DeleteIcon, CalendarIcon, TimeIcon, ExternalLinkIcon } from '@chakra-ui/icons';
-import EiffelTowerImage from '../images/EiffelTower.png'
+import EiffelTowerImage from '../../images/EiffelTower.png'
 
 interface ActivityProps {
   activity: ActivityType;

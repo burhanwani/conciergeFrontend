@@ -1,7 +1,7 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
 import SearchBox from '../components/Searchbox';
-import { ItineraryPage } from '@/components/itineraryPage';
+import { ItineraryPage } from '@/src/components/itineraryPage';
 
 const Home: React.FC = () => {
   return (

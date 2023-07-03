@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { useRecoilValue } from "recoil";
-import { placeState } from "@/atoms/placeAtom";
+import { placeState } from "@/src/atoms/placeAtom";
 
 export default function Mapmarker() {
   const { isLoaded } = useLoadScript({

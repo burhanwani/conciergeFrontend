@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import postData from "@/utils/requests";
+import postData from "@/src/utils/requests";
 import React, { useState, useEffect } from "react";
 import Mapmarker from "../pages/mapmarker";
 import {
@@ -13,7 +13,7 @@ import {
   useSetRecoilState,
   useRecoilValue,
 } from "recoil";
-import { placeState } from "@/atoms/placeAtom";
+import { placeState } from "@/src/atoms/placeAtom";
 
 const inter = Inter({ subsets: ["latin"] });
 
