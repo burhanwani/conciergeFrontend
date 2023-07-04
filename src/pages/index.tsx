@@ -5,12 +5,10 @@ import { ItineraryPage } from '@/src/components/itineraryPage';
 
 const Home: React.FC = () => {
   return (
-    <>
       <div>
         <SearchBox />
         <ItineraryPage />
       </div>
-    </>
   );
 };
 

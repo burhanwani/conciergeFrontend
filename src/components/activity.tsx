@@ -7,18 +7,36 @@ import { IconButton, Text, Input, Link, VStack } from '@chakra-ui/react';
 import { DeleteIcon, CalendarIcon, TimeIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import EiffelTowerImage from '../../images/EiffelTower.png'
 
+
+import { Draggable } from 'react-beautiful-dnd';
+// other imports...
+
 interface ActivityProps {
   activity: ActivityType;
-  onDelete: () => void;
+  index: number;
+  onDelete: (id: string) => void;
 }
 
-export const Activity: FC<ActivityProps> = ({ activity, onDelete }) => {
-  return (
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={4}>
-        <IconButton aria-label="Delete activity" icon={<DeleteIcon />} onClick={() => onDelete(activity.id)} />
+export const Activity: FC<ActivityProps> = ({ activity, index, onDelete }) => (
+  <Draggable draggableId={activity.id} index={index}>
+    {(provided) => (
+      <Box
+        ref={provided.innerRef}
+        {...provided.draggableProps}
+        {...provided.dragHandleProps}
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        p={4}
+      >
+        <IconButton
+          aria-label="Delete activity"
+          icon={<DeleteIcon />}
+          onClick={() => onDelete(activity.id)}
+        />
         <Text fontSize="xl">{activity.name}</Text>
         <Box>
-          <Image src={EiffelTowerImage} alt="" width={500} height={300} />
+          <Image src={EiffelTowerImage} alt="" width={200} height={100} />
         </Box>
         <Box display="flex" alignItems="center">
           <CalendarIcon />
@@ -27,7 +45,12 @@ export const Activity: FC<ActivityProps> = ({ activity, onDelete }) => {
         <Box display="flex" alignItems="center">
           <TimeIcon />
           <Text ml={2}>Allocated time (~1 hr avg):</Text>
-          <Input type="number" defaultValue={activity.allocatedTime} w="50px" ml={2} />
+          <Input
+            type="number"
+            defaultValue={activity.allocatedTime}
+            w="50px"
+            ml={2}
+          />
           <Text>hrs</Text>
         </Box>
         <Text>{activity.description}</Text>
@@ -38,5 +61,8 @@ export const Activity: FC<ActivityProps> = ({ activity, onDelete }) => {
           </Link>
         </Box>
       </Box>
-  );
-};
+    )}
+  </Draggable>
+);
+
+

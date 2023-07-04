@@ -24,6 +24,7 @@ module.exports = () => {
     ],
   } */
   return {
+    reactStrictMode: false, // add this line
     rewrites,
   };
 };
